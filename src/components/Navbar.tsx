@@ -9,7 +9,7 @@ import iconCalendar from "../assets/images/icon-calendar.svg";
 import iconReminders from "../assets/images/icon-reminders.svg";
 import iconPlanning from "../assets/images/icon-planning.svg";
 
-export const Navbar = () => {
+const Navbar = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const toggleMenu = () => {
     setShowMenu((prev) => !prev);
@@ -121,13 +121,13 @@ export const Navbar = () => {
 
           <div className="flex text-gray-700 text-sm font-medium gap-3">
             <button
-              className="bg-white px-6 py-2 rounded-xl hover:bg-gray-100 transition-colors animate-slide-in-top hover:text-gray-900 cursor-pointer focus:outline-none"
+              className="bg-white px-6 py-2 rounded-xl hover:bg-gray-100 transition-colors animate-slide-in-top hover:text-black cursor-pointer focus:outline-none"
               style={{ animationDelay: `${5 * 0.2}s` }}
             >
               Login
             </button>
             <button
-              className="bg-white border border-gray-700 px-6 py-2 rounded-xl hover:bg-gray-100 transition-colors animate-slide-in-top hover:text-gray-900 cursor-pointer focus:outline-none"
+              className="bg-white border border-gray-700 px-6 py-2 rounded-xl hover:bg-gray-100 hover:border-black transition-colors animate-slide-in-top hover:text-black cursor-pointer focus:outline-none"
               style={{ animationDelay: `${6 * 0.2}s` }}
             >
               Register
@@ -139,7 +139,10 @@ export const Navbar = () => {
       {/* Mobile Links */}
       {showMenu && (
         <div className="absolute top-0 left-0 w-full h-full md:hidden">
-          <div className="bg-[rgba(0,0,0,0.5)] fixed top-0 left-0 w-full h-full" />
+          <div
+            className="bg-[rgba(0,0,0,0.5)] fixed top-0 left-0 w-full h-full"
+            onClick={toggleMenu}
+          />
           <div
             className="shadow-lg pt-15 relative z-10 p-4 bg-white min-h-full w-3/5 ml-auto animate-slide-in-right"
             style={{ animationDelay: `${0 * 0.2}s` }}
@@ -273,3 +276,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export default Navbar;
